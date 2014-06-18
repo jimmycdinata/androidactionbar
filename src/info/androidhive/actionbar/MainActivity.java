@@ -4,6 +4,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.os.Build;
 
 public class MainActivity extends Activity {
@@ -28,6 +31,14 @@ public class MainActivity extends Activity {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
+		
+		// Associate searchable configuration with the SearchView
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search)
+                .getActionView();
+        searchView.setSearchableInfo(searchManager
+                .getSearchableInfo(getComponentName()));
+        
 		return super.onCreateOptionsMenu(menu);
 	}
 
@@ -60,8 +71,8 @@ public class MainActivity extends Activity {
      * Launching new activity
      * */
     private void LocationFound() {
-        //Intent i = new Intent(MainActivity.this, LocationFound.class);
-        //startActivity(i);
+        Intent i = new Intent(MainActivity.this, LocationFound.class);
+        startActivity(i);
     }
 	
 	/**

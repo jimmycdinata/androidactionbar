@@ -15,13 +15,34 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="info.androidhive.actionbar.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <!-- Search results activity -->
+        <activity android:name="info.androidhive.actionbar.SearchResultsActivity"
+            android:parentActivityName="info.androidhive.actionbar.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+ 
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        
+        <!-- Location found activity -->
+        <activity
+            android:name="info.androidhive.actionbar.LocationFound"
+            android:label="@string/activity_new_message"
+            android:parentActivityName="info.androidhive.actionbar.MainActivity" >
+        </activity>
+        
+        <meta-data android:name="android.app.default_searchable" android:value=".SearchResultsActivity" />
     </application>
 
 </manifest>

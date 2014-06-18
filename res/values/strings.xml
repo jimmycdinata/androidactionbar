@@ -9,4 +9,6 @@
     <string name="action_search">Search</string>
     <string name="action_location_found">Location</string>
     <string name="action_refresh">Refresh</string>
+    <string name="activity_new_message">New message</string>
+    <string name="search_hint">Type your search</string>
 </resources>
